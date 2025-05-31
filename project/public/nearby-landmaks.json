@@ -1,0 +1,179 @@
+{
+  "landmarks": [
+    {
+      "nameArabic": "عمان مول",
+      "nameEnglish": "Oman Mall",
+      "duration": "6 دقائق",
+      "durationInMinutes": 6,
+      "category": "shopping"
+    },
+    {
+      "nameArabic": "المحيط",
+      "nameEnglish": "OCEAN",
+      "duration": "5 دقائق",
+      "durationInMinutes": 5,
+      "category": "leisure"
+    },
+    {
+      "nameArabic": "مجمع السلطان قابوس الرياضي",
+      "nameEnglish": "Sultan Qaboos Sports Complex",
+      "duration": "8 دقائق",
+      "durationInMinutes": 8,
+      "category": "leisure"
+    },
+    {
+      "nameArabic": "جامع محمد الأمين",
+      "nameEnglish": "Mohammed Al-Amin Mosque",
+      "duration": "9 دقائق",
+      "durationInMinutes": 9,
+      "category": "masjid"
+    },
+    {
+      "nameArabic": "شارع السلطان قابوس (قريب)",
+      "nameEnglish": "Sultan Qaboos Street (Nearby)",
+      "duration": "6 دقائق",
+      "durationInMinutes": 6,
+      "category": "infrastructure"
+    },
+    {
+      "nameArabic": "المستشفى السلطاني",
+      "nameEnglish": "Sultan Hospital",
+      "duration": "7 دقائق",
+      "durationInMinutes": 7,
+      "category": "healthcare"
+    },
+    {
+      "nameArabic": "كلية مسقط",
+      "nameEnglish": "Muscat College",
+      "duration": "5 دقائق",
+      "durationInMinutes": 5,
+      "category": "education"
+    },
+    {
+      "nameArabic": "الجامعة الوطنية للتكنولوجيا والعلوم",
+      "nameEnglish": "National University of Technology and Science",
+      "duration": "8 دقائق",
+      "durationInMinutes": 8,
+      "category": "education"
+    },
+    {
+      "nameArabic": "الكلية الحديثة للتجارة والعلوم",
+      "nameEnglish": "Modern College of Commerce and Science",
+      "duration": "7 دقائق",
+      "durationInMinutes": 7,
+      "category": "education"
+    },
+    {
+      "nameArabic": "كلية الدراسات المصرفية",
+      "nameEnglish": "College of Banking Studies",
+      "duration": "6 دقائق",
+      "durationInMinutes": 6,
+      "category": "education"
+    },
+    {
+      "nameArabic": "مستشفى مسقط الخاص",
+      "nameEnglish": "Muscat Private Hospital",
+      "duration": "3 دقائق",
+      "durationInMinutes": 3,
+      "category": "healthcare"
+    },
+    {
+      "nameArabic": "بنك عمان العربي",
+      "nameEnglish": "Arab Bank Oman",
+      "duration": "9 دقائق",
+      "durationInMinutes": 9,
+      "category": "finance"
+    },
+    {
+      "nameArabic": "بنك ظفار",
+      "nameEnglish": "Dhofar Bank",
+      "duration": "9 دقائق",
+      "durationInMinutes": 9,
+      "category": "finance"
+    },
+    {
+      "nameArabic": "بنك مسقط",
+      "nameEnglish": "Muscat Bank",
+      "duration": "8 دقائق",
+      "durationInMinutes": 8,
+      "category": "finance"
+    },
+    {
+      "nameArabic": "مجمع المها التجاري",
+      "nameEnglish": "Almaha Commercial Street",
+      "duration": "10 دقائق",
+      "durationInMinutes": 10,
+      "category": "shopping"
+    },
+    {
+      "nameArabic": "مدرسة المهنا بن سلطان",
+      "nameEnglish": "Al Muhana bin Sultan School",
+      "duration": "7 دقائق",
+      "durationInMinutes": 7,
+      "category": "education"
+    },
+    {
+      "nameArabic": "شارع السلطان قابوس (بعيد)",
+      "nameEnglish": "Sultan Qaboos Street (Farther Segment)",
+      "duration": "10 دقائق",
+      "durationInMinutes": 10,
+      "category": "infrastructure"
+    },
+    {
+      "nameArabic": "بنك مسقط - بوشر",
+      "nameEnglish": "Bank Muscat Bousher",
+      "duration": "11 دقائق",
+      "durationInMinutes": 11,
+      "category": "finance"
+    },
+    {
+      "nameArabic": "شارع مسقط السريع",
+      "nameEnglish": "Muscat Expressway",
+      "duration": "5 دقائق",
+      "durationInMinutes": 5,
+      "category": "infrastructure"
+    },
+    {
+      "nameArabic": "مجمع السلام التجاري",
+      "nameEnglish": "Al Salam Commercial Complex",
+      "duration": "12 دقائق",
+      "durationInMinutes": 12,
+      "category": "shopping"
+    },
+    {
+      "nameArabic": "مجمع السلام",
+      "nameEnglish": "Al Salam Hall",
+      "duration": "10 دقائق",
+      "durationInMinutes": 10,
+      "category": "shopping"
+    },
+    {
+      "nameArabic": "مدرسة ABQ الإمتياز الخاصة",
+      "nameEnglish": "ABQ Al Imtiaz Private School",
+      "duration": "9 دقائق",
+      "durationInMinutes": 9,
+      "category": "education"
+    },
+    {
+      "nameArabic": "مسجد ناصر بن خلفان البوسعيدي",
+      "nameEnglish": "Nasser bin Khalfan Al-Busaidi Mosque",
+      "duration": "11 دقائق",
+      "durationInMinutes": 11,
+      "category": "masjid"
+    },
+    {
+      "nameArabic": "كلية عمان للعلوم المصرفية والمالية",
+      "nameEnglish": "College of Banking and Finance Services",
+      "duration": "9 دقائق",
+      "durationInMinutes": 9,
+      "category": "education"
+    },
+    {
+      "nameArabic": "الكلية الحديثة للتجارة والعلوم",
+      "nameEnglish": "Modern College of Business and Science",
+      "duration": "10 دقائق",
+      "durationInMinutes": 10,
+      "category": "education"
+    }
+  ]
+}
