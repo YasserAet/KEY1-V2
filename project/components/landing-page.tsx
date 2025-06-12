@@ -11,7 +11,9 @@ const galleryImages = [
   "/images/Gallery/B(1).png",
   "/images/Gallery/B(2).png",
   "/images/Gallery/B(3).png",
-  "/images/Gallery/B(4).png"
+  "/images/Gallery/B(4).png",
+  "/images/Gallery/B(5).png",
+  "/images/Gallery/B(6).png",
 ]
 
 // Fallback image in case the others don't load
