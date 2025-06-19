@@ -10,6 +10,8 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Vector3, Spherical, MathUtils } from "three";
 import * as THREE from "three";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import { UserControls } from "@/components/user-controls";
+import { useRouter } from "next/navigation";
 
 // Import both landmarks and pins data
 import landmarksData from "@/public/nearby-landmaks.json";
@@ -538,12 +540,23 @@ function PanoramaSphere({ hotspots }: { hotspots: Array<{ id: string; title: str
   );
 }
 
+interface ApartmentUser {
+  id: number
+  username: string
+  firstName: string
+  lastName: string
+  email: string
+  telephone?: string
+}
+
 export default function MapPage() {
   const [activeView, setActiveView] = useState("3d");
   const [yawValue, setYawValue] = useState(0);
   const [pitchValue, setPitchValue] = useState(0);
   const [copyMessage, setCopyMessage] = useState("");
   const [pageLoaded, setPageLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   // Add background fix for map page - CHANGED TO GREEN
   useEffect(() => {
@@ -685,10 +698,23 @@ export default function MapPage() {
     }
   });
 
-  // Show loading page until everything is loaded
-  if (!pageLoaded) {
-    return <Loading />;
+  // AUTHENTICATION DISABLED - Skip loading screen
+  /*
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gradient-to-br from-[#0B4D43] to-[#134E44]">
+        <div className="text-center">
+          <div className="relative">
+            <div className="w-16 h-16 border-4 border-[#2DD4BF]/30 border-t-[#2DD4BF] rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-r-[#2DD4BF]/50 rounded-full animate-ping mx-auto"></div>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-2 font-montserrat">Loading...</h2>
+          <p className="text-[#2DD4BF]/80 font-montserrat">Authenticating user...</p>
+        </div>
+      </div>
+    )
   }
+  */
 
   return (
     <div className="relative w-full h-full">
@@ -816,6 +842,9 @@ export default function MapPage() {
           </div>
         </div>
       )}
+
+      {/* User Controls - Added at bottom */}
+      {/* removed */}
     </div>
   );
 }

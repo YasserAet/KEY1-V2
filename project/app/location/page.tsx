@@ -6,6 +6,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import Loading from "../loading"; // Import the loading page
+import { useRouter } from "next/navigation";
+import { UserControls } from "@/components/user-controls";
 
 interface Landmark {
   nameArabic: string;
@@ -14,6 +16,15 @@ interface Landmark {
   durationInMinutes: number | null;
   details?: string[];
   category?: string; // Category for filtering
+}
+
+interface ApartmentUser {
+  id: number
+  username: string
+  firstName: string
+  lastName: string
+  email: string
+  telephone?: string
 }
 
 const categories = [
@@ -33,6 +44,7 @@ export default function LocationPage() {
   const [loading, setLoading] = useState(true);
   const [activeFilter, setActiveFilter] = useState("all");
   const [pageLoaded, setPageLoaded] = useState(false);
+  const router = useRouter();
 
   // Wait for full page load (all resources)
   useEffect(() => {
@@ -92,16 +104,55 @@ export default function LocationPage() {
     };
   }, []);
 
+  // AUTHENTICATION DISABLED - Commented out auth check
+  /*
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("/api/auth/verify")
+        if (response.ok) {
+          const data = await response.json()
+          setUser(data.user)
+        } else {
+          router.push("/auth")
+          return
+        }
+      } catch (error) {
+        router.push("/auth")
+        return
+      }
+    }
+    checkAuth()
+  }, [router])
+  */
+
   // Show loading page until everything is loaded
   if (!pageLoaded) {
     return <Loading />;
   }
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gradient-to-br from-[#0B4D43] to-[#134E44]">
+        <div className="text-center">
+          <div className="relative">
+            <div className="w-16 h-16 border-4 border-[#2DD4BF]/30 border-t-[#2DD4BF] rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-r-[#2DD4BF]/50 rounded-full animate-ping mx-auto"></div>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-2 font-montserrat">Loading...</h2>
+          <p className="text-[#2DD4BF]/80 font-montserrat">Authenticating user...</p>
+        </div>
+      </div>
+    )
+  }
+
   return (
-    <div style={{backgroundColor: "#f3f4f6 !important"}} className="min-h-screen">
+    <>
+      {/* Background overlay to ensure no blue shows through */}
       <div className="fixed inset-0 bg-gray-100 -z-10"></div>
-      <div className="pt-10 md:pt-40 px-6 pb-6 max-w-7xl mx-auto bg-gray-100 min-h-screen"> 
-      {/* <h1 className="text-3xl font-bold mb-6">Location Information</h1> */}
+      
+      <div className="p-3 sm:p-6 pt-10 sm:pt-[110px] max-w-7xl mx-auto bg-gray-100 min-h-screen">
+        {/* <h1 className="text-3xl font-bold mb-6">Location Information</h1> */}
         
         {/* Google Map Section - WITHOUT filters */}
         <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 mb-6">
@@ -235,6 +286,8 @@ export default function LocationPage() {
           </div>
         </div>
       </div>
-    </div>
+
+      {/* User Controls - Added at bottom */}
+    </>
   );
 }

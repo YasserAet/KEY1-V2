@@ -1,5 +1,4 @@
 "use client"
-
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -35,6 +34,7 @@ export default function SidebarNavigation() {
     { href: "/projects", label: "Projects", icon: <Home className="w-4 h-4 sm:w-5 sm:h-5" /> },
     { href: "/gallery", label: "Gallery", icon: <ImageIcon className="w-4 h-4 sm:w-5 sm:h-5" /> },
     { href: "/Floors", label: "Floors", icon: <Layers className="w-4 h-4 sm:w-5 sm:h-5" /> },
+    { href: "/vr", label: "VR", className: "justify-center"},
   ]
 
   return (
