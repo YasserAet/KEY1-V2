@@ -27,7 +27,7 @@ const useMobileDetection = () => {
   return isMobile
 }
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       "a-scene": any
@@ -42,12 +42,16 @@ declare global {
       "a-image": any
       "a-ring": any
       "a-plane": any
+      "a-light": any
     }
   }
+}
+
+declare global {
   interface Window {
     AFRAME: any
-    navigateToRoom: (roomId: string) => void
-    backToSelection: () => void
+    navigateToRoom?: (roomId: string) => void
+    backToSelection?: () => void
   }
 }
 

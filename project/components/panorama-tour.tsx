@@ -27,7 +27,7 @@ const useMobileDetection = () => {
   return isMobile
 }
 
-declare global {
+declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
       "a-scene": any
@@ -42,12 +42,16 @@ declare global {
       "a-image": any
       "a-ring": any
       "a-plane": any
+      "a-light": any
     }
   }
+}
+
+declare global {
   interface Window {
     AFRAME: any
-    navigateToRoom: (roomId: string) => void
-    backToSelection: () => void
+    navigateToRoom?: (roomId: string) => void
+    backToSelection?: () => void
   }
 }
 
@@ -209,7 +213,7 @@ export default function Component() {
     if (!window.AFRAME.components["cursor-listener"]) {
       window.AFRAME.registerComponent("cursor-listener", {
         init: function () {
-          this.el.addEventListener("mouseenter", function () {
+          this.el.addEventListener("mouseenter", function (this: any) {
             this.setAttribute("animation__hoverscale", "property: scale; to: 1.1 1.1 1.1; dur: 200; easing: easeOutBack")
             this.setAttribute(
               "animation__hoveremissive",
@@ -217,7 +221,7 @@ export default function Component() {
             )
           })
 
-          this.el.addEventListener("mouseleave", function () {
+          this.el.addEventListener("mouseleave", function (this: any) {
             this.setAttribute("animation__hoverscale", "property: scale; to: 1 1 1; dur: 150; easing: easeInBack")
             this.setAttribute(
               "animation__hoveremissive",
