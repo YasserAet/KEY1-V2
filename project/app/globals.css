@@ -287,3 +287,10 @@ body {
   position: relative; /* Ensure z-index takes effect */
 }
 
+/* .xr-button {
+  position: fixed !important;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999 !important;
+  pointer-events: auto !important;
+} */

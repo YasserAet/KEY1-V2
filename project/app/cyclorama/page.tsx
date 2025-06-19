@@ -16,6 +16,17 @@ import { cn } from "@/lib/utils"
 import { SpotLight, CatmullRomCurve3 } from "three"
 import { useThree } from "@react-three/fiber"
 import Loading from "../loading"; // Add this import at the top
+import { useRouter } from "next/navigation"
+import { UserControls } from "@/components/user-controls"
+
+interface ApartmentUser {
+  id: number
+  username: string
+  firstName: string
+  lastName: string
+  email: string
+  telephone?: string
+}
 
 // Helper to normalize names for matching - move outside, not a hook
 function normalize(str: string | undefined | null) {
@@ -385,8 +396,67 @@ export default function CycloramaPage() {
     setActiveElement("none")
   }
 
+  // AUTHENTICATION DISABLED - Set default user state
+  const [user, setUser] = useState<ApartmentUser | null>({
+    id: 1,
+    username: "demo_user",
+    firstName: "Demo",
+    lastName: "User",
+    email: "demo@example.com",
+    telephone: "+1234567890"
+  });
+  const [isLoading, setIsLoading] = useState(false); // Set to false since no auth check needed
+
+  const router = useRouter();
+
+  // AUTHENTICATION DISABLED - Commented out auth check
+  /*
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        const response = await fetch("/api/auth/verify")
+        if (response.ok) {
+          const data = await response.json()
+          setUser(data.user)
+        } else {
+          router.push("/auth")
+          return
+        }
+      } catch (error) {
+        router.push("/auth")
+        return
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    checkAuth()
+  }, [router])
+  */
+
+  // AUTHENTICATION DISABLED - Skip loading screen
+  /*
+  if (isLoading) {
   return (
-    <div className="relative w-full h-screen bg-black">
+      <div className="flex items-center justify-center h-screen bg-gradient-to-br from-[#0B4D43] to-[#134E44]">
+        <div className="text-center">
+          <div className="relative">
+            <div className="w-16 h-16 border-4 border-[#2DD4BF]/30 border-t-[#2DD4BF] rounded-full animate-spin mx-auto mb-6"></div>
+            <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-r-[#2DD4BF]/50 rounded-full animate-ping mx-auto"></div>
+          </div>
+          <h2 className="text-2xl font-bold text-white mb-2 font-montserrat">Loading...</h2>
+          <p className="text-[#2DD4BF]/80 font-montserrat">Authenticating user...</p>
+        </div>
+      </div>
+    )
+  }
+  */
+
+  return (
+    <>
+      {/* Background overlay to ensure no blue shows through */}
+      <div className="fixed inset-0 bg-gray-100 -z-10"></div>
+      
+      <div className="p-3 sm:p-6 pt-10 sm:pt-[110px] max-w-7xl mx-auto bg-gray-100 min-h-screen">
       {/* Loading screen - only show when loading is true */}
       {loading && <Loading />}
 
@@ -584,6 +654,10 @@ export default function CycloramaPage() {
         </div>
       )}
     </div>
+
+      {/* User Controls - Modified to remove gradient */}
+     
+    </>
   )
 }
 

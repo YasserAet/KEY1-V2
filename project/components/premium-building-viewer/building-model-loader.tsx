@@ -27,7 +27,7 @@ interface BuildingModelLoaderProps {
 }
 
 export function BuildingModelLoader({
-  envModelPath = "/assets/ENVFINAL.glb",
+  envModelPath = "/assets/ENVFINAL2.glb",
   currentFloor = -1,
   scale = 1,
   onFlatClick,

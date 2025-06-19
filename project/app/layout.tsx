@@ -6,6 +6,7 @@ import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "../components/theme-provider"
 import SidebarNavigation from "@/components/sidebar-navigation"
+import { usePathname } from "next/navigation"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -19,6 +20,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const pathname = usePathname()
+  const isAuthPage = pathname === "/auth"
+
   return (
     <html lang="en" style={{ backgroundColor: "#0B4D43" }} suppressHydrationWarning>
       <head>
@@ -28,9 +32,9 @@ export default function RootLayout({
           *, *::before, *::after { transition: none !important; }
         `}} />
       </head>
-      <body className="flex h-screen">
-        <SidebarNavigation />
-        <main className={`flex-1 h-full overflow-auto`}>
+      <body className={isAuthPage ? "h-screen" : "flex h-screen"}>
+        {!isAuthPage && <SidebarNavigation />}
+        <main className={`${isAuthPage ? "h-full" : "flex-1 h-full overflow-auto"}`}>
           <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
             {children}
           </ThemeProvider>
